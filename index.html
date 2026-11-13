@@ -37,15 +37,15 @@
   <div class="hero-text">
     <h1><img class="logo" src="logo.png" width="400" height="165" alt="Spectrum Sound Lab"></h1>
     <p class="lead">Music for the ZX Spectrum's beeper and AY chip.</p>
-    <p>Six voices at once from the 48K's one-bit speaker, with envelopes, slides, echo and a chorused bass. It is our own engine, in Z80, checked tick by tick. And Tim Follin's 1987 Your Sinclair tune, arranged for it.</p>
+    <p>Six voices at once from the 48K's one-bit speaker, with envelopes, slides, echo and a chorused bass. It is our own engine, in Z80, checked tick by tick. And Tim Follin's 1987 Your Sinclair tune, arranged for it, then both tunes again on the 128K's AY chip.</p>
     <div class="actions">
       <a class="btn" href="#demos">See the demos</a>
-      <a class="btn btn-ghost" href="demos/star-tip-2026/">The newest: Star Tip 2026: Tim Follin's 1987 tune, on six voices</a>
+      <a class="btn btn-ghost" href="demos/on-the-ay/">The newest: On the AY: both tunes on the 128K's sound chip</a>
     </div>
   </div>
   <figure class="hero-shot">
-    <a class="shot" href="shots/star-tip-2026/playing.png" data-caption="Playing on a 48K. The border shows each voice's turn on the speaker in its own colour."><img src="shots/star-tip-2026/playing.png" width="704" height="576" alt="A Spectrum screen headed STAR TIP 2026 with a colour key for six voices, credits to Tim Follin, and a border of short coloured lines"></a>
-    <figcaption>Star Tip 2026: Tim Follin's 1987 tune, on six voices. Playing on a 48K. The border shows each voice's turn on the speaker in its own colour.</figcaption>
+    <a class="shot" href="shots/on-the-ay/star-tip.png" data-caption="Star Tip 2026 on the AY. The three bars are the channels' volumes: A the lead, B the bass, C the rest."><img src="shots/on-the-ay/star-tip.png" width="704" height="576" alt="A Spectrum screen headed STAR TIP 2026 on the AY, credits to Tim Follin, and three coloured bars showing the AY channels' volumes"></a>
+    <figcaption>On the AY: both tunes on the 128K's sound chip. Star Tip 2026 on the AY. The three bars are the channels' volumes: A the lead, B the bass, C the rest.</figcaption>
   </figure>
 </section>
 
@@ -54,6 +54,16 @@
   <h2>Listen, then load one</h2>
   <p class="sub">Each has a recording to play here, a tape for an emulator or a real Spectrum, and a page on how it works. Newest first.</p>
   <div class="demos">
+    <article class="demo card">
+      <div class="demo-media"><a class="shot" href="shots/on-the-ay/star-tip.png" data-caption="Star Tip 2026 on the AY. The three bars are the channels' volumes: A the lead, B the bass, C the rest."><img src="shots/on-the-ay/star-tip.png" width="704" height="576" loading="lazy" alt="A Spectrum screen headed STAR TIP 2026 on the AY, credits to Tim Follin, and three coloured bars showing the AY channels' volumes"></a></div>
+      <div class="demo-text">
+        <p class="badges"><span class="badge m128K">128K</span><span class="date">13 November 2026</span></p>
+        <h3><a href="demos/on-the-ay/">On the AY: both tunes on the 128K's sound chip</a></h3>
+        <p>Six Voices and Star Tip 2026 again, this time on the 128K's AY chip: three real channels instead of six turns on one bit. The lead has a channel, the bass is a chorused buzzer on another, and the harmony, echo and drums share the third. It is cleaner than the beeper, and the music takes about 2% of the machine.</p>
+        <p class="listen"><small>Star Tip 2026 on the AY, 38 s</small><br><audio controls preload="none" style="width:100%;max-width:440px" src="audio/startip2026-ay.mp3"></audio></p>
+        <p class="links"><a class="btn btn-small" href="demos/on-the-ay/">How it works</a><a class="btn btn-small btn-ghost" href="files/startip2026-ay.tap" download>Star Tip 2026 .tap</a><a class="btn btn-small btn-ghost" href="files/sixvoices-ay.tap" download>Six Voices .tap</a></p>
+      </div>
+    </article>
     <article class="demo card">
       <div class="demo-media"><a class="shot" href="shots/star-tip-2026/playing.png" data-caption="Playing on a 48K. The border shows each voice's turn on the speaker in its own colour."><img src="shots/star-tip-2026/playing.png" width="704" height="576" loading="lazy" alt="A Spectrum screen headed STAR TIP 2026 with a colour key for six voices, credits to Tim Follin, and a border of short coloured lines"></a></div>
       <div class="demo-text">
@@ -87,7 +97,7 @@
     </div>
     <ol class="steps">
       <li><b>In an emulator</b> (ZX Spin, Retro Virtual Machine, Fuse and others): open the <code>.tap</code> on a 48K or a 128K. On a 128K, pick <b>Tape Loader</b>; on a 48K, type <code>LOAD ""</code>. These are ordinary tapes, so fast loading is fine.</li>
-      <li><b>Turn the sound up.</b> On a 48K all six voices come from the beeper; on a 128K the snare also plays on the AY.</li>
+      <li><b>Turn the sound up.</b> On a 48K all six voices come from the beeper; on a 128K the snare also plays on the AY. The AY versions need a 128K or +2.</li>
       <li><b>Any key</b> stops the tune; another plays it again from the top.</li>
       <li><b>On a real Spectrum:</b> play the tape into the EAR socket from a tape player or a TZX player.</li>
     </ol>
@@ -99,6 +109,7 @@
   <h2>What's new</h2>
   <div class="log card">
     <ul>
+      <li><time datetime="2026-11-13">13 November 2026</time> <b>On the AY:</b> <a href="demos/on-the-ay/">both tunes on the 128K's sound chip</a>: the lead, a chorused buzzer bass, and the harmony, echo and drums sharing the third channel.</li>
       <li><time datetime="2026-11-13">13 November 2026</time> <b>Star Tip 2026:</b> <a href="demos/star-tip-2026/">Tim Follin's 1987 type-in tune on six voices</a>, with an echo, a chorused bass and drums.</li>
       <li><time datetime="2026-11-13">13 November 2026</time> <b>Six Voices:</b> <a href="demos/six-voices/">six channels of music on the 48K's one-bit beeper</a>, and the first tune for it.</li>
     </ul>
