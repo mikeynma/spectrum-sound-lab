@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Six Voices: six channels on one bit - Spectrum Sound Lab</title>
+<meta name="description" content="A minute of music on the 48K's beeper, six voices at once: a lead with its echo, an arpeggio or pad, a bass and its chorus, and drums. It has ADSR envelopes, slides and vibrato, all from one bit, and the border shows each voice's turn on the speaker. On a 128K the snare also plays on the AY.">
+<meta property="og:title" content="Six Voices: six channels on one bit - Spectrum Sound Lab">
+<meta property="og:description" content="A minute of music on the 48K's beeper, six voices at once: a lead with its echo, an arpeggio or pad, a bass and its chorus, and drums. It has ADSR envelopes, slides and vibrato, all from one bit, and the border shows each voice's turn on the speaker. On a 128K the snare also plays on the AY.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mikeynma.github.io/spectrum-sound-lab/demos/six-voices/">
+<meta property="og:image" content="https://mikeynma.github.io/spectrum-sound-lab/shots/six-voices/playing.png">
+<meta property="og:image:alt" content="A Spectrum screen headed SIX VOICES with a colour key for six voices and a border of short coloured lines">
+<link rel="canonical" href="https://mikeynma.github.io/spectrum-sound-lab/demos/six-voices/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mikeynma.github.io/spectrum-sound-lab/shots/six-voices/playing.png">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="../../favicon-32.png" type="image/png">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<link rel="preload" href="../../fonts/geist-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../site.css">
+</head>
+<body>
+<div class="tape" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../../" aria-label="Spectrum Sound Lab, the front page"><img src="../../icon.png" width="32" height="32" alt=""><span>Spectrum Sound Lab</span></a>
+    <nav aria-label="Sections"><a href="#how">How it works</a><a href="#screens">Screens</a><a href="#download">Download</a><a href="../../#demos">All demos</a></nav>
+  </div>
+</header>
+
+<main>
+<section class="hero wrap">
+  <div class="hero-text">
+    <p class="badges"><span class="badge m48K">48K</span><span class="badge m128K">128K</span><span class="date">13 November 2026</span></p>
+    <h1 class="title">Six Voices: six channels on one bit</h1>
+    <p class="lead">A minute of music on the 48K's beeper, six voices at once: a lead with its echo, an arpeggio or pad, a bass and its chorus, and drums. It has ADSR envelopes, slides and vibrato, all from one bit, and the border shows each voice's turn on the speaker. On a 128K the snare also plays on the AY.</p>
+    <p>The Spectrum's beeper is one bit: the speaker is either pushed out or not. Music on it means switching that bit fast enough, in the right pattern, that the ear hears notes. This engine gives six voices a turn each on the bit, eight thousand times a second.</p>
+    <div class="listen"><p><small>a 48K, all six on the beeper, 63 s</small><br><audio controls preload="none" style="width:100%;max-width:440px" src="../../audio/sixvoices-48k.mp3"></audio></p><p><small>a 128K, the snare on the AY too</small><br><audio controls preload="none" style="width:100%;max-width:440px" src="../../audio/sixvoices-128k.mp3"></audio></p></div>
+    <div class="actions"><a class="btn" href="../../files/sixvoices.tap" download>Download the .tap, 48K or 128K <small>20 KB</small></a></div>
+  </div>
+  <figure class="hero-shot">
+    <video src="../../videos/six-voices.mp4" poster="../../shots/six-voices/playing.png" width="782" height="576" muted loop playsinline controls preload="metadata" aria-label="Six Voices: six channels on one bit: Recorded on an emulated 48K"></video>
+    <figcaption>Recorded on an emulated 48K.</figcaption>
+  </figure>
+</section>
+
+<section id="how" class="wrap">
+  <p class="eyebrow">How it works</p>
+  <div class="tech">
+    <div class="tech-text">
+      <h2>Six turns on one bit</h2>
+      <p>Each voice is a 16-bit pitch counter, kept in a register: HL, DE, their twins in the second register set, IX and IY. On every trip round a 404 T loop each voice adds its step to its counter, compares the top byte with its pulse width, and puts the answer on the speaker. It holds it there until the next voice takes over. The lead has the longest turn, so it is the loudest.</p>
+<p>A voice's pitch and width are numbers written inside the loop's own instructions, so the loop never reads memory. The border colour is set by the same <code>OUT</code> as the speaker, and that is what draws the coloured lines.</p>
+      <h2>Envelopes from ramps</h2>
+      <p>About fifty times a second the loop stops for a moment and moves each voice's pitch and width a step along a straight-line ramp, then reads the tune for anything new. Everything musical is made of those ramps, worked out when the tune is compiled. An ADSR envelope is a ramp up, down to the sustain, and down to silence. A slide is a pitch ramp. Vibrato is pitch ramps up and down. The echo is the lead's notes again a dotted eighth later on another voice. The chorused bass is a second bass 0.9% sharp.</p>
+      <h2>Where it came from</h2>
+      <p>In 1987 Your Sinclair printed Tim Follin's three-voice routine, Star Tip 2, and said he was working on a six-channel one "with chorus bass, 128K snare drum, echo, portamento, and full ADSR". As far as we can find it never appeared. This is our own engine for that list. <a href="../star-tip-2026/">Star Tip 2026</a> plays his tune on it.</p>
+      <h2>How it was checked</h2>
+      <p>Checked by the Sound Lab's build on both machines. After every one of the tune's 3,072 ticks, every voice's pitch and pulse width in the Z80 equal what a model of the engine in JavaScript says. Each voice was played alone and its pitch measured from the speaker's edges, while the border showed only its colour. The ULA delays every write to the speaker while it draws the screen, which made the first version 24 cents flat; the tuning now allows for it. That tick-by-tick check also caught a real bug before anyone heard it: a byte of the tune overwritten at <code>$C000</code>.</p>
+    </div>
+    <aside class="card numbers">
+      <h3>The numbers</h3>
+      <dl><dt>Machines</dt><dd>48K; 128K, +2 (snare on the AY too)</dd><dt>Voices</dt><dd>6, in a 404 T loop: 8,400 turns a second each</dd><dt>Length</dt><dd>63 s, then it plays again</dd><dt>Engine</dt><dd>1,348 bytes; the tune 18,298</dd><dt>Tuning</dt><dd>within 1 cent on a 48K</dd></dl>
+    </aside>
+  </div>
+</section>
+
+<section id="screens" class="wrap">
+  <p class="eyebrow">Screens</p>
+  <h2>As our emulator draws it</h2>
+  <p class="sub">Full frames, border and all. Click a picture to see it bigger.</p>
+  <div class="gallery">
+    <a class="shot" href="../../shots/six-voices/playing.png" data-caption="Playing on a 48K. Each voice's turn on the speaker shows in the border in its own colour: yellow for the lead, blue and magenta for the bass and its chorus."><img src="../../shots/six-voices/playing.png" width="704" height="576" loading="lazy" alt="A Spectrum screen headed SIX VOICES with a colour key for six voices and a border of short coloured lines"></a>
+    <a class="shot wide" href="../../shots/six-voices/spectrogram.png" data-caption="The first 20 seconds as a spectrogram. The bass comes in first, then the arpeggio, then the drums and the lead with its echo."><img src="../../shots/six-voices/spectrogram.png" width="792" height="360" loading="lazy" alt="A spectrogram: bright note lines and vertical drum streaks over a magenta background"></a>
+    <a class="shot" href="../../shots/six-voices/playing-128k.png" data-caption="On a 128K."><img src="../../shots/six-voices/playing-128k.png" width="704" height="576" loading="lazy" alt="The same Six Voices screen, its machine line reading 128K: snare on the AY too"></a>
+  </div>
+</section>
+
+<section id="download" class="wrap">
+  <div class="card download">
+    <div>
+      <p class="eyebrow">Download</p>
+      <h2>Load it yourself</h2>
+      <p>For the 48K and the 128K. Each machine has its own tape; its .tzx and .tap hold the same blocks.</p>
+      <p class="meta"><code>sixvoices.tap</code>, 20 KB, built 13 November 2026</p>
+      <div class="actions"><a class="btn" href="../../files/sixvoices.tap" download>Download the .tap, 48K or 128K <small>20 KB</small></a></div>
+    </div>
+    <ol class="steps">
+      <li><b>In an emulator</b> (ZX Spin, Retro Virtual Machine, Fuse and others): open the <code>.tap</code> on a 48K or a 128K. On a 128K, pick <b>Tape Loader</b>; on a 48K, type <code>LOAD ""</code>. These are ordinary tapes, so fast loading is fine.</li>
+      <li><b>Turn the sound up.</b> On a 48K all six voices come from the beeper; on a 128K the snare also plays on the AY.</li>
+      <li><b>Any key</b> stops the tune; another plays it again from the top.</li>
+      <li><b>On a real Spectrum:</b> play the tape into the EAR socket from a tape player or a TZX player.</li>
+    </ol>
+  </div>
+</section>
+
+<nav class="wrap pager" aria-label="Other demos">
+  <span></span>
+  <a href="../star-tip-2026/">Star Tip 2026: Tim Follin's 1987 tune, on six voices &rarr;</a>
+</nav>
+</main>
+
+<footer class="wrap foot">
+  <img src="../../icon.png" width="24" height="24" alt="">
+  <div>
+    <p>Spectrum Sound Lab is a set of sound experiments for the ZX Spectrum, written in Z80 assembly with our own assembler and emulator, and checked tick by tick. Made in the UK, by the maker of <a href="https://mikeynma.github.io/">games for the ZX Spectrum Next</a> and of <a href="https://mikeynma.github.io/borders-and-loaders/">Borders &amp; Loaders</a>.</p>
+    <p class="small">Star Tip 2026's tune is Tim Follin's, &copy; 1987, used as Your Sinclair printed it: free in programs that are not sold. The arrangement is free and not for sale. Everything else here is our own code, tunes and pictures. Text in Geist, under the SIL Open Font License.</p>
+  </div>
+</footer>
+<dialog class="lightbox" aria-label="Screenshot">
+  <figure><img alt=""><figcaption></figcaption></figure>
+  <button class="lb-btn lb-prev" type="button" aria-label="Previous picture">&lsaquo;</button>
+  <button class="lb-btn lb-next" type="button" aria-label="Next picture">&rsaquo;</button>
+  <button class="lb-btn lb-close" type="button" autofocus aria-label="Close">&times;</button>
+</dialog>
+<script src="../../site.js"></script>
+</body>
+</html>

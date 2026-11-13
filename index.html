@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Spectrum Sound Lab: beeper and AY music for the ZX Spectrum</title>
+<meta name="description" content="Music for the ZX Spectrum's beeper and AY chip: six voices at once from the 48K's one-bit speaker, with envelopes, slides, echo and a chorused bass, and Tim Follin's 1987 tune arranged for it.">
+<meta property="og:title" content="Spectrum Sound Lab: beeper and AY music for the ZX Spectrum">
+<meta property="og:description" content="Music for the ZX Spectrum's beeper and AY chip: six voices at once from the 48K's one-bit speaker, with envelopes, slides, echo and a chorused bass, and Tim Follin's 1987 tune arranged for it.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mikeynma.github.io/spectrum-sound-lab/">
+<meta property="og:image" content="https://mikeynma.github.io/spectrum-sound-lab/share.png">
+<meta property="og:image:alt" content="Spectrum Sound Lab: the logo, black paper in a border of short coloured lines, beside a Spectrum screen playing six voices">
+<link rel="canonical" href="https://mikeynma.github.io/spectrum-sound-lab/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mikeynma.github.io/spectrum-sound-lab/share.png">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="favicon-32.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/geist-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="tape" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Spectrum Sound Lab, the front page"><img src="icon.png" width="32" height="32" alt=""><span>Spectrum Sound Lab</span></a>
+    <nav aria-label="Sections"><a href="#demos">Tunes</a><a href="#loading">Playing them</a><a href="#news">What's new</a><a href="#about">About</a></nav>
+  </div>
+</header>
+
+<main>
+<section class="hero wrap">
+  <div class="hero-text">
+    <h1><img class="logo" src="logo.png" width="400" height="165" alt="Spectrum Sound Lab"></h1>
+    <p class="lead">Music for the ZX Spectrum's beeper and AY chip.</p>
+    <p>Six voices at once from the 48K's one-bit speaker, with envelopes, slides, echo and a chorused bass. It is our own engine, in Z80, checked tick by tick. And Tim Follin's 1987 Your Sinclair tune, arranged for it.</p>
+    <div class="actions">
+      <a class="btn" href="#demos">See the demos</a>
+      <a class="btn btn-ghost" href="demos/star-tip-2026/">The newest: Star Tip 2026: Tim Follin's 1987 tune, on six voices</a>
+    </div>
+  </div>
+  <figure class="hero-shot">
+    <a class="shot" href="shots/star-tip-2026/playing.png" data-caption="Playing on a 48K. The border shows each voice's turn on the speaker in its own colour."><img src="shots/star-tip-2026/playing.png" width="704" height="576" alt="A Spectrum screen headed STAR TIP 2026 with a colour key for six voices, credits to Tim Follin, and a border of short coloured lines"></a>
+    <figcaption>Star Tip 2026: Tim Follin's 1987 tune, on six voices. Playing on a 48K. The border shows each voice's turn on the speaker in its own colour.</figcaption>
+  </figure>
+</section>
+
+<section id="demos" class="wrap">
+  <p class="eyebrow">The demos</p>
+  <h2>Listen, then load one</h2>
+  <p class="sub">Each has a recording to play here, a tape for an emulator or a real Spectrum, and a page on how it works. Newest first.</p>
+  <div class="demos">
+    <article class="demo card">
+      <div class="demo-media"><a class="shot" href="shots/star-tip-2026/playing.png" data-caption="Playing on a 48K. The border shows each voice's turn on the speaker in its own colour."><img src="shots/star-tip-2026/playing.png" width="704" height="576" loading="lazy" alt="A Spectrum screen headed STAR TIP 2026 with a colour key for six voices, credits to Tim Follin, and a border of short coloured lines"></a></div>
+      <div class="demo-text">
+        <p class="badges"><span class="badge m48K">48K</span><span class="badge m128K">128K</span><span class="date">13 November 2026</span></p>
+        <h3><a href="demos/star-tip-2026/">Star Tip 2026: Tim Follin's 1987 tune, on six voices</a></h3>
+        <p>In 1987 Your Sinclair printed a three-voice tune by Tim Follin as a type-in, and said he was working on a six-channel routine with chorus bass, echo, portamento and ADSR. We could not find that it was ever released. This is his tune on our six-voice engine, with an echo, a chorused bass and drums.</p>
+        <p class="listen"><small>a 48K, all six voices on the beeper, 36 s</small><br><audio controls preload="none" style="width:100%;max-width:440px" src="audio/startip2026-48k.mp3"></audio></p>
+        <p class="links"><a class="btn btn-small" href="demos/star-tip-2026/">How it works</a><a class="btn btn-small btn-ghost" href="files/startip2026.tap" download>.tap, 48K or 128K</a></p>
+      </div>
+    </article>
+    <article class="demo card">
+      <div class="demo-media"><video src="videos/six-voices.mp4" poster="shots/six-voices/playing.png" width="782" height="576" muted loop playsinline controls preload="metadata" aria-label="Six Voices: six channels on one bit: Recorded on an emulated 48K"></video></div>
+      <div class="demo-text">
+        <p class="badges"><span class="badge m48K">48K</span><span class="badge m128K">128K</span><span class="date">13 November 2026</span></p>
+        <h3><a href="demos/six-voices/">Six Voices: six channels on one bit</a></h3>
+        <p>A minute of music on the 48K's beeper, six voices at once: a lead with its echo, an arpeggio or pad, a bass and its chorus, and drums. It has ADSR envelopes, slides and vibrato, all from one bit, and the border shows each voice's turn on the speaker. On a 128K the snare also plays on the AY.</p>
+        <p class="listen"><small>a 48K, all six on the beeper, 63 s</small><br><audio controls preload="none" style="width:100%;max-width:440px" src="audio/sixvoices-48k.mp3"></audio></p>
+        <p class="links"><a class="btn btn-small" href="demos/six-voices/">How it works</a><a class="btn btn-small btn-ghost" href="files/sixvoices.tap" download>.tap, 48K or 128K</a></p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="loading" class="wrap">
+  <div class="card download">
+    <div>
+      <p class="eyebrow">Playing them</p>
+      <h2>Load the tape</h2>
+      <p>They are ordinary tapes: load them at any speed. The music starts as soon as the screen appears.</p>
+      <p class="meta">Tapes last built: 13 November 2026.</p>
+    </div>
+    <ol class="steps">
+      <li><b>In an emulator</b> (ZX Spin, Retro Virtual Machine, Fuse and others): open the <code>.tap</code> on a 48K or a 128K. On a 128K, pick <b>Tape Loader</b>; on a 48K, type <code>LOAD ""</code>. These are ordinary tapes, so fast loading is fine.</li>
+      <li><b>Turn the sound up.</b> On a 48K all six voices come from the beeper; on a 128K the snare also plays on the AY.</li>
+      <li><b>Any key</b> stops the tune; another plays it again from the top.</li>
+      <li><b>On a real Spectrum:</b> play the tape into the EAR socket from a tape player or a TZX player.</li>
+    </ol>
+  </div>
+</section>
+
+<section id="news" class="wrap">
+  <p class="eyebrow">Changelog</p>
+  <h2>What's new</h2>
+  <div class="log card">
+    <ul>
+      <li><time datetime="2026-11-13">13 November 2026</time> <b>Star Tip 2026:</b> <a href="demos/star-tip-2026/">Tim Follin's 1987 type-in tune on six voices</a>, with an echo, a chorused bass and drums.</li>
+      <li><time datetime="2026-11-13">13 November 2026</time> <b>Six Voices:</b> <a href="demos/six-voices/">six channels of music on the 48K's one-bit beeper</a>, and the first tune for it.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="about" class="wrap">
+  <p class="eyebrow">About</p>
+  <h2>How it's made</h2>
+  <div class="grid cards">
+    <article class="card"><h3>Our own tools</h3><p>An assembler and a Spectrum emulator written for this work, in JavaScript. The emulator logs every change of the speaker and every AY write to the T-state, and turns them back into sound.</p></article>
+    <article class="card"><h3>Checked, tick by tick</h3><p>A model of the engine in JavaScript says what every voice should be doing after every tick. The build plays each tune on both machines and compares the Z80 with it the whole way through.</p></article>
+    <article class="card"><h3>Then listened to</h3><p>A check can pass and still sound wrong, so every tune is rendered to a recording, drawn as a spectrogram and played in other emulators.</p></article>
+  </div>
+</section>
+</main>
+
+<footer class="wrap foot">
+  <img src="icon.png" width="24" height="24" alt="">
+  <div>
+    <p>Spectrum Sound Lab is a set of sound experiments for the ZX Spectrum, written in Z80 assembly with our own assembler and emulator, and checked tick by tick. Made in the UK, by the maker of <a href="https://mikeynma.github.io/">games for the ZX Spectrum Next</a> and of <a href="https://mikeynma.github.io/borders-and-loaders/">Borders &amp; Loaders</a>.</p>
+    <p class="small">Star Tip 2026's tune is Tim Follin's, &copy; 1987, used as Your Sinclair printed it: free in programs that are not sold. The arrangement is free and not for sale. Everything else here is our own code, tunes and pictures. Text in Geist, under the SIL Open Font License.</p>
+  </div>
+</footer>
+<dialog class="lightbox" aria-label="Screenshot">
+  <figure><img alt=""><figcaption></figcaption></figure>
+  <button class="lb-btn lb-prev" type="button" aria-label="Previous picture">&lsaquo;</button>
+  <button class="lb-btn lb-next" type="button" aria-label="Next picture">&rsaquo;</button>
+  <button class="lb-btn lb-close" type="button" autofocus aria-label="Close">&times;</button>
+</dialog>
+<script src="site.js"></script>
+</body>
+</html>

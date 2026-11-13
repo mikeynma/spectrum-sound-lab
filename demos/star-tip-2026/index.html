@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Star Tip 2026: Tim Follin's 1987 tune, on six voices - Spectrum Sound Lab</title>
+<meta name="description" content="In 1987 Your Sinclair printed a three-voice tune by Tim Follin as a type-in, and said he was working on a six-channel routine with chorus bass, echo, portamento and ADSR. We could not find that it was ever released. This is his tune on our six-voice engine, with an echo, a chorused bass and drums.">
+<meta property="og:title" content="Star Tip 2026: Tim Follin's 1987 tune, on six voices - Spectrum Sound Lab">
+<meta property="og:description" content="In 1987 Your Sinclair printed a three-voice tune by Tim Follin as a type-in, and said he was working on a six-channel routine with chorus bass, echo, portamento and ADSR. We could not find that it was ever released. This is his tune on our six-voice engine, with an echo, a chorused bass and drums.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mikeynma.github.io/spectrum-sound-lab/demos/star-tip-2026/">
+<meta property="og:image" content="https://mikeynma.github.io/spectrum-sound-lab/shots/star-tip-2026/playing.png">
+<meta property="og:image:alt" content="A Spectrum screen headed STAR TIP 2026 with a colour key for six voices, credits to Tim Follin, and a border of short coloured lines">
+<link rel="canonical" href="https://mikeynma.github.io/spectrum-sound-lab/demos/star-tip-2026/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mikeynma.github.io/spectrum-sound-lab/shots/star-tip-2026/playing.png">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="../../favicon-32.png" type="image/png">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<link rel="preload" href="../../fonts/geist-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../site.css">
+</head>
+<body>
+<div class="tape" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../../" aria-label="Spectrum Sound Lab, the front page"><img src="../../icon.png" width="32" height="32" alt=""><span>Spectrum Sound Lab</span></a>
+    <nav aria-label="Sections"><a href="#how">How it works</a><a href="#screens">Screens</a><a href="#download">Download</a><a href="../../#demos">All demos</a></nav>
+  </div>
+</header>
+
+<main>
+<section class="hero wrap">
+  <div class="hero-text">
+    <p class="badges"><span class="badge m48K">48K</span><span class="badge m128K">128K</span><span class="date">13 November 2026</span></p>
+    <h1 class="title">Star Tip 2026: Tim Follin's 1987 tune, on six voices</h1>
+    <p class="lead">In 1987 Your Sinclair printed a three-voice tune by Tim Follin as a type-in, and said he was working on a six-channel routine with chorus bass, echo, portamento and ADSR. We could not find that it was ever released. This is his tune on our six-voice engine, with an echo, a chorused bass and drums.</p>
+    <p><b>The tune is Tim Follin's</b>, &copy; 1987. Your Sinclair #20 printed it with his word that he "doesn't mind you using the tune in your own programs" but keeps the copyright, "so it can't be used for commercial games". This arrangement is free, credits him on its screen, and is not for sale.</p>
+<p>His notes are played on our own engine. None of his code is used.</p>
+    <div class="listen"><p><small>a 48K, all six voices on the beeper, 36 s</small><br><audio controls preload="none" style="width:100%;max-width:440px" src="../../audio/startip2026-48k.mp3"></audio></p><p><small>a 128K, the snare on the AY too</small><br><audio controls preload="none" style="width:100%;max-width:440px" src="../../audio/startip2026-128k.mp3"></audio></p></div>
+    <div class="actions"><a class="btn" href="../../files/startip2026.tap" download>Download the .tap, 48K or 128K <small>16 KB</small></a></div>
+  </div>
+  <figure class="hero-shot">
+    <a class="shot" href="../../shots/star-tip-2026/playing.png" data-caption="Playing on a 48K. The border shows each voice's turn on the speaker in its own colour."><img src="../../shots/star-tip-2026/playing.png" width="704" height="576" alt="A Spectrum screen headed STAR TIP 2026 with a colour key for six voices, credits to Tim Follin, and a border of short coloured lines"></a>
+    <figcaption>Playing on a 48K. The border shows each voice's turn on the speaker in its own colour.</figcaption>
+  </figure>
+</section>
+
+<section id="how" class="wrap">
+  <p class="eyebrow">How it works</p>
+  <div class="tech">
+    <div class="tech-text">
+      <h2>Reading his notes</h2>
+      <p>Star Tip 2 was 1,340 bytes typed in from the magazine: 290 bytes of player and the rest the tune. That is 18 sections, each with a chord length and an envelope, then three-note chords. His player counted pitch in trips of a loop that got longer whenever a voice sounded. So each chord was turned into frequencies with that stretch allowed for, then rounded to the nearest semitone. They land 12 cents from it on average.</p>
+<p>In places he put two voices on the same note slightly apart, his own chorus. Those keep their detune.</p>
+      <h2>What 2026 adds</h2>
+      <p>His top voice becomes our lead, with vibrato on long notes and a short slide into them. Behind it, a fourth voice echoes the lead a dotted eighth later and quieter. His middle voice is the harmony. His bass is doubled by a fifth voice 0.9% sharp, so the two beat slowly against each other: a chorused bass, one of the things his promised routine was to have.</p>
+<p>The sixth voice is a drum kit, which the original did not have: falling tones for kick and snare, and a high blip for the hat. On a 128K the snare also strikes the AY's noise channel.</p>
+<p>His envelopes become a few kinds of attack and decay: an organ for most of it, a bell and a swell for the long opening chord, plucks, and his three-voice drones.</p>
+      <h2>The engine</h2>
+      <p>It is the same engine as <a href="../six-voices/">Six Voices</a>. Six 16-bit pitch counters each get a slice of a 404 T loop and put their bit on the speaker in turn, so the ear hears all six together. The pulse width is each voice's volume.</p>
+      <h2>How it was checked</h2>
+      <p>Checked by the Sound Lab's build on both machines. After every one of the tune's 1,885 ticks (and 60 into the second time round), every voice's pitch and pulse width in the Z80 equal what a model of the engine in JavaScript says they should be. The 128K's AY writes are checked too: 108 of them, as the model has them. The tuning is measured against the loop and tick lengths the tune assumed. A key stops it and starts it again, and the tape loads on both machines. Not yet heard on a real Spectrum.</p>
+    </div>
+    <aside class="card numbers">
+      <h3>The numbers</h3>
+      <dl><dt>Machines</dt><dd>48K; 128K, +2 (snare on the AY too)</dd><dt>Length</dt><dd>36 s, then it plays again</dd><dt>Original</dt><dd>Star Tip 2, Your Sinclair #20, August 1987: 3 voices, 314 chords</dd><dt>Tune data</dt><dd>14,991 bytes</dd><dt>Tuning</dt><dd>within 1 cent on a 48K; a 128K plays it 19 cents sharp</dd></dl>
+    </aside>
+  </div>
+</section>
+
+<section id="screens" class="wrap">
+  <p class="eyebrow">Screens</p>
+  <h2>As our emulator draws it</h2>
+  <p class="sub">Full frames, border and all. Click a picture to see it bigger.</p>
+  <div class="gallery">
+    <a class="shot" href="../../shots/star-tip-2026/playing.png" data-caption="Playing on a 48K. The border shows each voice's turn on the speaker in its own colour."><img src="../../shots/star-tip-2026/playing.png" width="704" height="576" loading="lazy" alt="A Spectrum screen headed STAR TIP 2026 with a colour key for six voices, credits to Tim Follin, and a border of short coloured lines"></a>
+    <a class="shot wide" href="../../shots/star-tip-2026/spectrogram.png" data-caption="The first 20 seconds as a spectrogram: time across, pitch up. His long opening chord swells, then the run and the main section start, with the drums as vertical streaks."><img src="../../shots/star-tip-2026/spectrogram.png" width="792" height="360" loading="lazy" alt="A spectrogram: bright horizontal note lines over a magenta background, vertical drum streaks after the first four seconds"></a>
+    <a class="shot" href="../../shots/star-tip-2026/playing-128k.png" data-caption="On a 128K, where the snare also plays on the AY's noise channel."><img src="../../shots/star-tip-2026/playing-128k.png" width="704" height="576" loading="lazy" alt="The same Star Tip 2026 screen, its machine line reading 128K: snare on the AY too"></a>
+  </div>
+</section>
+
+<section id="download" class="wrap">
+  <div class="card download">
+    <div>
+      <p class="eyebrow">Download</p>
+      <h2>Load it yourself</h2>
+      <p>For the 48K and the 128K. Each machine has its own tape; its .tzx and .tap hold the same blocks.</p>
+      <p class="meta"><code>startip2026.tap</code>, 16 KB, built 13 November 2026</p>
+      <div class="actions"><a class="btn" href="../../files/startip2026.tap" download>Download the .tap, 48K or 128K <small>16 KB</small></a></div>
+    </div>
+    <ol class="steps">
+      <li><b>In an emulator</b> (ZX Spin, Retro Virtual Machine, Fuse and others): open the <code>.tap</code> on a 48K or a 128K. On a 128K, pick <b>Tape Loader</b>; on a 48K, type <code>LOAD ""</code>. These are ordinary tapes, so fast loading is fine.</li>
+      <li><b>Turn the sound up.</b> On a 48K all six voices come from the beeper; on a 128K the snare also plays on the AY.</li>
+      <li><b>Any key</b> stops the tune; another plays it again from the top.</li>
+      <li><b>On a real Spectrum:</b> play the tape into the EAR socket from a tape player or a TZX player.</li>
+    </ol>
+  </div>
+</section>
+
+<nav class="wrap pager" aria-label="Other demos">
+  <a href="../six-voices/">&larr; Six Voices: six channels on one bit</a>
+  <span></span>
+</nav>
+</main>
+
+<footer class="wrap foot">
+  <img src="../../icon.png" width="24" height="24" alt="">
+  <div>
+    <p>Spectrum Sound Lab is a set of sound experiments for the ZX Spectrum, written in Z80 assembly with our own assembler and emulator, and checked tick by tick. Made in the UK, by the maker of <a href="https://mikeynma.github.io/">games for the ZX Spectrum Next</a> and of <a href="https://mikeynma.github.io/borders-and-loaders/">Borders &amp; Loaders</a>.</p>
+    <p class="small">Star Tip 2026's tune is Tim Follin's, &copy; 1987, used as Your Sinclair printed it: free in programs that are not sold. The arrangement is free and not for sale. Everything else here is our own code, tunes and pictures. Text in Geist, under the SIL Open Font License.</p>
+  </div>
+</footer>
+<dialog class="lightbox" aria-label="Screenshot">
+  <figure><img alt=""><figcaption></figcaption></figure>
+  <button class="lb-btn lb-prev" type="button" aria-label="Previous picture">&lsaquo;</button>
+  <button class="lb-btn lb-next" type="button" aria-label="Next picture">&rsaquo;</button>
+  <button class="lb-btn lb-close" type="button" autofocus aria-label="Close">&times;</button>
+</dialog>
+<script src="../../site.js"></script>
+</body>
+</html>
