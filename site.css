@@ -106,6 +106,12 @@ main > section { padding: 76px 0 0; }
 .tech-text p, .tech-text li { color: #dcdcea; }
 .tech-text ul { padding-left: 20px; }
 .tech-text b { color: var(--heading); }
+/* hints with their answers hidden until asked (a game's "How to play") */
+.hint { border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 10px 14px; margin: 10px 0; background: rgba(255,255,255,0.03); }
+.hint summary { cursor: pointer; color: var(--heading); font-weight: 600; }
+.hint summary small { color: #9a9ab0; font-weight: 400; }
+.hint[open] summary small { display: none; }
+.hint p { margin: 8px 0 0; }
 .numbers { position: sticky; top: 90px; }
 .numbers h3 { color: var(--yellow); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.85rem; margin-bottom: 12px; }
 .numbers dl { margin: 0; display: grid; gap: 10px; }
@@ -143,7 +149,13 @@ main > section { padding: 76px 0 0; }
 .lightbox { padding: 0; border: 0; background: transparent; max-width: 96vw; max-height: 96vh; }
 .lightbox::backdrop { background: rgb(0 0 0 / 0.92); }
 .lightbox figure { margin: 0; text-align: center; }
-.lightbox img { max-width: 92vw; max-height: 84vh; image-rendering: pixelated; }
+.lb-view { width: 92vw; height: 84vh; overflow: auto; display: flex; overscroll-behavior: contain; }
+.lb-view img { margin: auto; max-width: 100%; max-height: 100%; image-rendering: pixelated; }
+.lb-view.zoomed { cursor: grab; }
+.lb-view.zoomed.dragging { cursor: grabbing; }
+.lb-view.zoomed img { max-width: none; max-height: none; }
+.lb-zoom { position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; }
+.lb-zoom button { min-width: 48px; height: 40px; padding: 0 12px; border-radius: 20px; border: 1px solid var(--border); background: var(--card); color: var(--fg); font: 600 1.05rem/1 Geist, system-ui, sans-serif; cursor: pointer; }
 .lightbox figcaption { color: var(--muted); margin-top: 8px; max-width: 80ch; margin-inline: auto; }
 .lb-btn { position: fixed; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--border); background: var(--card); color: var(--fg); font-size: 28px; cursor: pointer; }
 .lb-prev { left: 16px; } .lb-next { right: 16px; }

@@ -113,7 +113,12 @@
   </div>
 </footer>
 <dialog class="lightbox" aria-label="Screenshot">
-  <figure><img alt=""><figcaption></figcaption></figure>
+  <figure><div class="lb-view"><img alt=""></div><figcaption></figcaption></figure>
+  <div class="lb-zoom" role="group" aria-label="Zoom">
+    <button type="button" class="lb-out" aria-label="Zoom out">&minus;</button>
+    <button type="button" class="lb-fit" aria-label="Fit it to the screen">Fit</button>
+    <button type="button" class="lb-in" aria-label="Zoom in">+</button>
+  </div>
   <button class="lb-btn lb-prev" type="button" aria-label="Previous picture">&lsaquo;</button>
   <button class="lb-btn lb-next" type="button" aria-label="Next picture">&rsaquo;</button>
   <button class="lb-btn lb-close" type="button" autofocus aria-label="Close">&times;</button>
